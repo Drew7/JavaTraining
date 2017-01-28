@@ -1,0 +1,36 @@
+#if
+Operator if:
+if(condition) operator;
+else operator;
+
+#switch
+Operator switch:
+switch(expression) {
+case constant:
+operators
+break;
+// ...
+}
+
+#for
+Operator for:
+for(initialize; condition; iteration)
+ operator;
+
+#while
+Operator while:
+while(condition) operator;
+
+#do-while
+Operator do-while:
+do {
+ operator;
+}while(condition);
+
+#break
+Operator break:
+break; or break mark;
+
+#continue
+Operator continue:
+continue; or continue mark
