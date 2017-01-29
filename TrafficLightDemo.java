@@ -1,5 +1,12 @@
 enum TrafficLightColor {
-    RED, GREEN, YELLOW
+    RED(12000), GREEN(10000), YELLOW(2000);
+    private int delay;
+    
+    TrafficLightColor(int d) {
+        delay = d;
+    }
+    
+    int getDelay() { return delay; }
 }
 
 class TrafficLightSimulator implements Runnable {
@@ -25,17 +32,19 @@ class TrafficLightSimulator implements Runnable {
     public void run() {
         while(!stop) {
             try {
-                switch(tlc) {
+                /*switch(tlc) {
                     case GREEN:
-                        Thread.sleep(10000);
+                        Thread.sleep(tlc.getDelay());
                         break;
                     case YELLOW:
-                        Thread.sleep(2000);
+                        Thread.sleep(tlc.getDelay());
                         break;
                     case RED:
-                        Thread.sleep(12000);
+                        Thread.sleep(tlc.getDelay());
                         break;
-                }
+                }*/
+                Thread.sleep(TrafficLightColor.values()[tlc.ordinal()].getDelay());
+                
             } catch(InterruptedException exc) {
                 System.out.println(exc);
             }
