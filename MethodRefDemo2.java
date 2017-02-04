@@ -2,6 +2,10 @@ interface IntPredicate {
     boolean test(int n);
 }
 
+interface MyIntNumPredicate {
+    boolean test(MyIntNum mv, int n);
+}
+
 class MyIntNum {
     private int v;
     
@@ -32,6 +36,13 @@ class MethodRefDemo2 {
         result = ip.test(3);
         if(!result) System.out.println("3 is not divider of: " + myNum2.getNum());
         
+        MyIntNumPredicate inp = MyIntNum::isFactor;
+        
+        result = inp.test(myNum, 3);
+        if(result) System.out.println("3 is divider of: " + myNum.getNum());
+        
+        result = inp.test(myNum2, 3);
+        if(!result) System.out.println("3 is not divider of: " + myNum2.getNum());
     }
 }
 
