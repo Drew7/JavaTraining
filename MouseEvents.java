@@ -6,7 +6,7 @@ import java.awt.Graphics;
     </applet>
 */
 
-public class MouseEvents extends Applet implements MouseListener, MouseMotionListener {
+public class MouseEvents extends Applet implements MouseListener, MouseMotionListener, MouseWheelListener {
     
     String msg = "";
     int mouseX = 0, mouseY = 0;
@@ -14,6 +14,7 @@ public class MouseEvents extends Applet implements MouseListener, MouseMotionLis
     public void init() {
         addMouseListener(this);
         addMouseMotionListener(this);
+        addMouseWheelListener(this);
     }
     
     public void mouseClicked(MouseEvent me) {
@@ -61,6 +62,14 @@ public class MouseEvents extends Applet implements MouseListener, MouseMotionLis
     
     public void mouseMoved(MouseEvent me) {
         showStatus("Moving mouse at " + me.getXOnScreen() + ", " + me.getYOnScreen());
+    }
+    
+    public void mouseWheelMoved(MouseWheelEvent mwe) {
+        int i = mwe.getWheelRotation();
+        if(i > 0)
+            showStatus("Wheel down");
+        else
+            showStatus("Wheel up");
     }
     
     public void paint(Graphics g) {
