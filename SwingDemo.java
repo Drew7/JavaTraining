@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.BorderLayout;
 
 class SwingDemo {
     SwingDemo() {
@@ -11,9 +12,11 @@ class SwingDemo {
         JLabel jlab = new JLabel("Swing defines modern Java GUI?");
         
         JButton jbtn = new JButton("Try to make btn.");
+        JButton jbtn2 = new JButton("Try to make btn.2");
         
-        jfrm.add(jlab);
-        jfrm.add(jbtn);
+        jfrm.add(jlab, BorderLayout.NORTH);
+        jfrm.add(jbtn, BorderLayout.EAST);
+        jfrm.add(jbtn2, BorderLayout.WEST);
         
         jfrm.setVisible(true);
     }
