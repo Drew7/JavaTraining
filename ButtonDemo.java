@@ -2,7 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-class ButtonDemo implements ActionListener {
+class ButtonDemo {
     
     JLabel jlab;
     
@@ -19,8 +19,8 @@ class ButtonDemo implements ActionListener {
         JButton jbtnUp = new JButton("Up");
         JButton jbtnDown = new JButton("Down");
         
-        jbtnUp.addActionListener(this);
-        jbtnDown.addActionListener(this);
+        jbtnUp.addActionListener((ae) -> jlab.setText("You pressed Up."));
+        jbtnDown.addActionListener((ae) -> jlab.setText("You pressed Down."));
         
         jfrm.add(jbtnUp);
         jfrm.add(jbtnDown);
@@ -33,13 +33,7 @@ class ButtonDemo implements ActionListener {
         
     }
     
-    public void actionPerformed(ActionEvent ae) {
-        if(ae.getActionCommand().equals("Up"))
-            jlab.setText("You pressed Up.");
-        else
-            jlab.setText("You pressed Down.");
-    }
-    
+   
     public static void main(String args[]) {
         try { 
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); 
